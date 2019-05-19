@@ -15,6 +15,8 @@ EVMFuzzer
 
 \> `benchmarkEVMs/myEVM`  Source code of User's EVM.
 
+You may need to set permissions for executable files in `benchmarkEVMs` folder.
+
 **Project Folders：**
 
 \> `contract`  Library of smart contracts.
