@@ -227,8 +227,13 @@ def main():
     print(fmt(color.RED, "The interface form should like: xxxxxx --code A --input B"))
     print(fmt(color.RED, "where A is the runtime code of contract, and B is the input data for transaction."))
     print(fmt(color.RED, "\n"))
-    print(fmt(color.YELLOW, "E.g.  python3 /home/usr/project/myEVM/runTx.py --code A --data B"))
-    ori = input()
+    ### default API
+    ori = "python3 " + PROJECT_DIR + "/myEVM/runTx.py --code A --data B"
+    print(fmt(color.YELLOW, "E.g.  python3 /home/usr/project/myEVM/runTx.py --code A --data B (The default value is set.)"))
+    userAPI = input()
+    if userAPI != "":
+        ori=userAPI
+
 
     need_prefix = True
     print(fmt(color.RED, "\n"))
@@ -242,10 +247,7 @@ def main():
     print(fmt(color.RED, "Please set fuzz times: (The default setting is 100)"))
     times = input()
     if times != "":
-        maxIter = int(times)
-
-    ### For Test run
-    ori = "python3 " + PROJECT_DIR + "/myEVM/runTx.py --code A --data B"
+        maxIter = int(times)   
 
     for _, _, filenames in os.walk(contractPATH, followlinks=True):
         # Step 1.遍历合约
